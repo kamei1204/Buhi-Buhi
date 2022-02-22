@@ -1,28 +1,70 @@
 import Header from "../components/Header"
 import Banner2 from "../components/Banner2"
-import SmallCard from "../components/SmallCard"
 import MediumCard from "../components/MediumCard"
 import LargeCard from "../components/LargeCard"
+import LargeCard2 from "../components/LargeCard2"
 import Footer from "../components/Footer"
 import Head from 'next/head'
 
 
-export default function Home({ exploreData, cardsData }) {
+export default function Home() {
   return (
     <div className="">
       <Head>
       <title>BuHiBuHi</title>
       </Head>
+      
 
-      <Header />
-      <Banner2/>
+      <div className="sm:bg-gray-900 lg:p-10 ">
+        <Header/>
+        <Banner2/>
+      </div>
 
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
+      <section>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">次にいく旅のアイデアを見つけよう</h2>
+            {/* <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3">
+            {cardsData?.map(({img, title}) => (
+              <MediumCard 
+                key={img}
+                img={img}
+                title={title}
+              />
+            ))} */}
+            <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3">
+              <MediumCard 
+                img="/ita.JPEG"
+                title="大分"
+                description="目的地まで22km"
+              />
+              <MediumCard 
+                img="/osaka.JPEG"
+                title="大阪"
+                description="目的地まで1km"
+              />
+              <MediumCard 
+                img="/fukuoka.JPEG"
+                title="福岡"
+                description="目的地まで5km"
+              />
+              <MediumCard 
+                img="/okayama.JPEG"
+                title="岡山"
+                description="目的地まで3km"
+              />
+              <MediumCard 
+                img="/kumamoto.JPEG"
+                title="熊本"
+                description="目的地まで11km"
+              />
+              </div>
+          </section>
         <section className="pt-6">
-          <h2 className="text-4xl font-semibold pb-5">近くの温泉を探す</h2>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">素敵な体験をしよう</h2>
+          {/* <h2 className="text-4xl font-semibold pb-5">近くの温泉を探す</h2> */}
 
           {/* pull some data from a server -API endpoints- */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               { exploreData?.map(({img, location, distance}) => (
                 <SmallCard 
                   key={img}
@@ -32,32 +74,34 @@ export default function Home({ exploreData, cardsData }) {
                 />
 
               ))}
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-4xl font-semibold py-8">泊まれる温泉のお宿</h2>
-
-            <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3">
-            {cardsData?.map(({img, title}) => (
-              <MediumCard 
-                key={img}
-                img={img}
-                title={title}
+            </div> */}
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <LargeCard2 
+                  img="/sunnyCard1.jpg"
+                  title="旅行中の体験を共有"
+                  description="curated by sunny code"
+                  buttonText="共有する"
               />
-            ))}
+              <LargeCard2 
+                  img="/sunnyCard3.jpg"
+                  title="旅行中に楽しめる体験"
+                  description="curated by sunny code"
+                  buttonText="近くでできる体験"
+              />
 
             </div>
           </section>
+
+          
 
           <LargeCard 
-            img="/sunny3.JPEG"
-            title=""
-            description="curated by sunny code"
-            buttonText="さぁ最高の旅へ"
-          />
-        </main>
+            img="/sunny10.JPEG"
+            title="ワンちゃんと泊まれるお宿をぜひ教えてください"
+            // description=""
+            buttonText="ご連絡をお待ちしております"
+            />
 
+            </main>
         <Footer />
       </div>
     );

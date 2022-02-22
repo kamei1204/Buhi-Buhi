@@ -3,6 +3,7 @@ import Footer from "../components/Footer"
 import { useRouter } from "next/router"
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 
 
@@ -13,6 +14,7 @@ function Search({ searchResults }) {
     const router = useRouter();
 
     console.log(searchResults);
+    // router.queryによりクエリパラメーター部分を簡単に抽出することができます
     const { location, startDate, endDate, noOfGests} = router.query;
 
     const formattedStartDate = format(new Date(startDate), "dd MMM yy");
@@ -52,6 +54,10 @@ function Search({ searchResults }) {
 
 
                 </section>
+{/* 
+                <section className="min-w-[600px]">
+                    <Map searchResults={searchResults}/>
+                </section> */}
             </main>
             <Footer />
         </div>

@@ -1,15 +1,26 @@
 import Header from "../components/Header"
-import Banner2 from "../components/Banner2"
+import Banner2 from "../components/Banner"
+// import SmallCard from "../components/SmallCard"
 import MediumCard from "../components/MediumCard"
 import LargeCard from "../components/LargeCard"
 import LargeCard2 from "../components/LargeCard2"
 import Footer from "../components/Footer"
 import Head from 'next/head'
+import { useInView } from 'react-intersection-observer';
+import 'animate.css';
 
 
 export default function Home() {
+
+  const { ref, inView } = useInView({
+    // オプション
+    rootMargin: '-50px', // ref要素が現れてから50px過ぎたら
+    triggerOnce: true, // 最初の一度だけ実行
+  });
+
   return (
     <div className="">
+      
       <Head>
       <title>BuHiBuHi</title>
       </Head>
@@ -19,8 +30,11 @@ export default function Home() {
         <Header/>
         <Banner2/>
       </div>
+      
 
+      
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
+      
       <section>
             <h2 className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">次にいく旅のアイデアを見つけよう</h2>
             {/* <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 ml-3">
@@ -59,8 +73,15 @@ export default function Home() {
               />
               </div>
           </section>
-        <section className="pt-6">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">素敵な体験をしよう</h2>
+        <section ref={ref} className="pt-6">
+        {inView && (
+          <div
+            className="animate__animated animate__fadeInUp"
+          >
+            <h2  className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">素敵な体験をしよう</h2>
+          </div>
+        )}
+        {/* <h2  className="text-2xl md:text-3xl lg:text-4xl mt-7 font-bold">素敵な体験をしよう</h2> */}
           {/* <h2 className="text-4xl font-semibold pb-5">近くの温泉を探す</h2> */}
 
           {/* pull some data from a server -API endpoints- */}
@@ -75,6 +96,7 @@ export default function Home() {
 
               ))}
             </div> */}
+        
             <div className="grid grid-cols-1 md:grid-cols-2">
               <LargeCard2 
                   img="/sunnyCard1.jpg"
@@ -91,9 +113,17 @@ export default function Home() {
 
             </div>
           </section>
+          {/* <div ref={ref} style={{ height: '50px' }}>
+        {inView && (
+          <div
+            className="animate__animated animate__fadeInUp"
+            style={{ backgroundColor: 'yellow' }}
+          >
+            <p>黄色の要素が出現</p>
+          </div>
+        )}
 
-          
-
+          </div> */}
           <LargeCard 
             img="/sunny10.JPEG"
             title="ワンちゃんと泊まれるお宿をぜひ教えてください"
@@ -102,8 +132,9 @@ export default function Home() {
             />
 
             </main>
+            
         <Footer />
-      </div>
+        </div>
     );
   }
   

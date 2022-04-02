@@ -3,8 +3,7 @@ import axios from "axios";
 
 
 // 楽天APIエンドポイント
-const BASE_URL = 
-'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json';
+const BASE_URL ="https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&";
 
 // エラーを管理するstate
 const useFetchData = () => {
@@ -30,7 +29,7 @@ const useFetchData = () => {
         
         // APIコール
         axios.get(
-            `${BASE_URL}&keyword=${encodedParams}&page=1&applicationId=${process.env.Rakuten_Key}`
+            `${BASE_URL}&keyword=${encodedParams}&page=1&applicationId=1070278709261281218`
             )
             .then((res) => {
                 // レスポンスを格納

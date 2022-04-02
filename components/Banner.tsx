@@ -23,7 +23,7 @@ function Banner2() {
                 <p className="font-bold text-white text-4xl">犬も入れる温泉をお探しですか？</p>
 
                 <button 
-                    onClick={() => Router.push("/onsenRanking")}
+                    onClick={() => Router.push("/Ranking")}
                     className="
                         font-bold text-white border-2 rounded-full
                         px-3 py-2 my-3 

@@ -21,16 +21,11 @@ Router.events.on('routeChangeComplete', progress.finish);
 Router.events.on('routeChangeError', progress.finish);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  // const store = useStore()
-  // const persistor = persistStore(store)
 
   return (
     // Providerで必ずwrap そうすることでreducerが効いてくれる
     <Provider store={store}>
-      {/* <PersistGate persistor={persistor}> */}
-        {/* <Core /> */}
         <Component {...pageProps} />
-      {/* </PersistGate> */}
     </Provider>
   )
 }
